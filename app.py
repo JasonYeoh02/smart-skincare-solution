@@ -7,6 +7,7 @@ import numpy as np
 from PIL import Image
 import pandas as pd
 from sklearn.neighbors import NearestNeighbors
+import os  # Add this to read environment variables
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
@@ -92,4 +93,6 @@ def recommend():
 # ------------------------------------------------------------
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use Render's provided PORT environment variable
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
