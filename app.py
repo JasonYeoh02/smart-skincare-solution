@@ -8,6 +8,7 @@ from PIL import Image
 import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import os  # Add this to read environment variables
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
